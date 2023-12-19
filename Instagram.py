@@ -99,7 +99,8 @@ def main():
         if follow_actions > 90 or unfollow_actions >90 :
             # 190 actions per day
             print("sleep until daily limit resets")
-            actions = 0
+            unfollow_actions = 0
+            follow_actions = 0
             time.sleep(24 * 60 * 60)
             continue
 
@@ -110,7 +111,7 @@ def main():
         # Iterate over the followed list and unfollow users with dates more than provided days ago
         for entry in followed:
 
-            if unfollow_actions > 190 :
+            if unfollow_actions > 90 :
                 print("daily unfollow actions limit reached...")
                 break
 
@@ -120,9 +121,9 @@ def main():
 
             if days_difference >= args.days:
                 # Unfollow the user
-                # bot.unfollow(user = entry["username"], delay = args.delay)
+                bot.unfollow(user = entry["username"], delay = args.delay)
                 print(f'unfollow action : {entry["username"]}')
-                actions += 1
+                unfollow_actions += 1
             else :
                 queue.append(entry)
                 
@@ -138,7 +139,7 @@ def main():
                 break
             # bot.follow(user = user,delay = args.delay)
             print(f'follow action : {user}')
-            actions += 1
+            follow_actions += 1
             queue.append({"username": user, "date": datetime.datetime.now().strftime("%m/%d/%Y")})
             
         print(queue)
