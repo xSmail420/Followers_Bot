@@ -8,7 +8,7 @@ def load_accounts():
         try:
             with open("instagram/accounts.json", "r") as file:
                 accounts = json.load(file)
-        except FileNotFoundError:
+        except:
             accounts = []
         return accounts
 
