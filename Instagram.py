@@ -121,8 +121,9 @@ def main():
 
             if days_difference >= args.days:
                 # Unfollow the user
-                bot.unfollow(user = entry["username"], delay = args.delay)
                 print(f'unfollow action : {entry["username"]}')
+                bot.unfollow(user = entry["username"], delay = args.delay)
+                
                 unfollow_actions += 1
             else :
                 queue.append(entry)
