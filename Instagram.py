@@ -4,6 +4,10 @@ import time
 import datetime
 from instagram.InstaBot import InstagramBot
 
+def save_accounts(accounts):
+    with open("instagram/accounts.json", "w") as file:
+        json.dump(load_accounts() + accounts, file)
+
 def load_accounts():
         try:
             with open("instagram/accounts.json", "r") as file:
@@ -19,10 +23,6 @@ def load_users():
             return users
         except FileNotFoundError:
             return None
-     
-def save_accounts(accounts):
-    with open("instagram/accounts.json", "w") as file:
-        json.dump(load_accounts() + accounts, file)
 
 def save_followed(users):
     with open("instagram/followed.json", "w") as file:

@@ -18,7 +18,7 @@ class InstagramBot:
         chrome_options = Options()
         chrome_options.add_argument("--window-size=930,820")
         # Run Chrome in headless mode
-        # chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
         # chrome_options.add_argument("--start-maximized")  # Maximize the Chrome window
         # Use webdriver_manager to automatically download and manage the ChromeDriver
         # add undetected_chromedriver here 
