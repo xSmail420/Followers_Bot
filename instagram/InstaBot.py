@@ -84,7 +84,7 @@ class InstagramBot:
                 following_btn.click()
                 time.sleep(3)
                 wait = WebDriverWait(self.driver, 10)
-                unfollow_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//section/div//button')))
+                unfollow_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//div[2]/div/div/div/div[8]')))
                 if unfollow_btn.text.lower() == "unfollow":
                     unfollow_btn.click()
                     time.sleep(3)
