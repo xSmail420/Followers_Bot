@@ -138,8 +138,8 @@ def main():
             if follow_actions > 90 :
                 print("daily follow actions limit reached...")
                 break
-            bot.follow(user = user,delay = args.delay)
             print(f'follow action : {user}')
+            bot.follow(user = user,delay = args.delay)
             follow_actions += 1
             queue.append({"username": user, "date": datetime.datetime.now().strftime("%m/%d/%Y")})
             

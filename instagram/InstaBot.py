@@ -18,7 +18,7 @@ class InstagramBot:
         chrome_options = Options()
         chrome_options.add_argument("--window-size=930,820")
         # Run Chrome in headless mode
-        chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
         # chrome_options.add_argument("--start-maximized")  # Maximize the Chrome window
         # Use webdriver_manager to automatically download and manage the ChromeDriver
         # add undetected_chromedriver here 
@@ -66,8 +66,8 @@ class InstagramBot:
         self.driver.get(f"https://www.instagram.com/{user}")
         try :
             wait = WebDriverWait(self.driver, 10)
-            follow_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//section/div[1]/div[2]/div/div[1]/button')))
-            
+            follow_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//section/div//button')))
+            time.sleep(3)
             if follow_btn.text.lower() == "follow":
                 follow_btn.click()
                 time.sleep(10)
@@ -78,13 +78,13 @@ class InstagramBot:
         self.driver.get(f"https://www.instagram.com/{user}")
         try :
             wait = WebDriverWait(self.driver, 10)
-            following_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//section/div[1]/div[2]/div/div[1]/button')))
+            following_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//section/div//button')))
         
             if following_btn.text.lower() == "following":
                 following_btn.click()
                 time.sleep(3)
                 wait = WebDriverWait(self.driver, 10)
-                unfollow_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//div[2]/div/div/div/div[8]')))
+                unfollow_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//section/div//button')))
                 if unfollow_btn.text.lower() == "unfollow":
                     unfollow_btn.click()
                     time.sleep(3)
