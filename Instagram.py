@@ -7,7 +7,7 @@ from instagram.InstaBot import InstagramBot
 def save_accounts(accounts):
     acc = load_accounts()
     with open("instagram/accounts.json", "w") as file:
-        json.dump(load_accounts() + accounts, file)
+        json.dump(acc + accounts, file)
 
 def load_accounts():
         try:
